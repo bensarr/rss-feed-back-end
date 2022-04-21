@@ -39,7 +39,7 @@ async function fetchRssFeed(feedUrl) {
     });
 }
 
-const bitcoinFeedUrl = 'https://www.lemonde.fr/rss/en_continu.xml'
+const bitcoinFeedUrl = 'https://www.lemonde.fr/rss/en_continu.xml';
 
 app.get('/api/news', async (req, res) => {
     await fetchRssFeed(bitcoinFeedUrl)
