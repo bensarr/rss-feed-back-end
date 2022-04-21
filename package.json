@@ -1,0 +1,20 @@
+{
+  "name": "rss-feed-reader-back",
+  "version": "1.0.0",
+  "description": "Back End Application for Rss fedd reader",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bensarr/rss-feed-back-end"
+  },
+  "author": "El Hadji Hady Sarr",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "rss-parser": "^3.12.0"
+  }
+}
