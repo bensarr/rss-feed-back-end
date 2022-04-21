@@ -1,9 +1,9 @@
-const express = require('express')
+const express = require('express');
 const cors = require("cors");
 
-let Parser = require('rss-parser')
+let Parser = require('rss-parser');
 
-const app = express()
+const app = express();
 
 const corsOptions = {
     origin: "http://localhost:4200"
@@ -25,10 +25,6 @@ let parser = new Parser({
 async function fetchRssFeed(feedUrl) {
     let feed = await parser.parseURL(feedUrl);
     return feed.items.map(item => {
-        console.log(
-            !item['media:content'][ 'media:description']
-                ? {}
-                : item['media:content'][ 'media:description'].shift())
         return {
             title: item.title,
             description: item.description,
@@ -57,5 +53,5 @@ app.get('/api/news', async (req, res) => {
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
-    console.log("Server is running on port 5000")
+    console.log("Server is running on port 5000");
 })
