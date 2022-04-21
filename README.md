@@ -1,5 +1,5 @@
 # rss-feed-back-end 
-Ici est la partie Back-End de l'application;
+Ce Projet est la partie Back-End de l'application;
 Elle a été implémentée avec **Node.js** et **Express**
 
 Le Package **[rss-parser](https://www.npmjs.com/package/rss-parser)** nous a permis de convertir les informations du flux rss en objet json qu'on a passé à notre api via **[express](https://www.npmjs.com/package/express)**
