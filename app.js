@@ -6,7 +6,7 @@ let Parser = require('rss-parser');
 const app = express();
 
 const corsOptions = {
-    origin: "http://localhost:4200"
+    origin: "https://rss-feed-front-end.herokuapp.com/"
 };
 app.use(cors(corsOptions));
 let parser = new Parser({
