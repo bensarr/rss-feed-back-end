@@ -6,7 +6,7 @@ let Parser = require('rss-parser');
 const app = express();
 
 const corsOptions = {
-    origin: "https://rss-feed-front-end.herokuapp.com",
+    origin: ["https://rss-feed-front-end.herokuapp.com", "http://localhost:4200"],
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type',
     optionsSuccessStatus: 200
@@ -52,7 +52,12 @@ app.get('/api/news', async (req, res) => {
                 message: 'An error occurred when fetching news'
             })
         })
-})
+});
+
+const db = require("./models");
+db.sequelize.sync();
+
+require("./routes/article.routes")(app);
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
