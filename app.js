@@ -14,8 +14,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
 let parser = new Parser({
     headers: { 'User-Agent': 'Chrome' },
     requestOptions: {
