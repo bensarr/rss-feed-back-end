@@ -13,7 +13,8 @@ exports.create = (req, res) => {
     // Create a Article
     const article = {
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        link: req.body.link,
     };
     // Save Article in the database
     Article.create(article)
@@ -57,25 +58,6 @@ exports.findOne = (req, res) => {
         .catch(err => {
             res.status(500).send({
                 message: "Error retrieving Article with id=" + id
-            });
-        });
-};
-// Find a single Article with an id
-exports.findByLink = (req, res) => {
-    const link = req.params.link;
-    Article.findOne({where: {link: link}})
-        .then(data => {
-            if (data) {
-                res.send(data);
-            } else {
-                res.status(404).send({
-                    message: `Cannot find Article with link=${link}.`
-                });
-            }
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Error retrieving Article with link=" + link
             });
         });
 };
