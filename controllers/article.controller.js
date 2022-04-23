@@ -61,29 +61,29 @@ exports.findOne = (req, res) => {
         });
 };
 // Find a single Article with an id
-exports.findByTitle = (req, res) => {
-    const title = req.params.title;
-    Article.findOne({where: {title: title}})
+exports.findByLink = (req, res) => {
+    const link = req.params.link;
+    Article.findOne({where: {link: link}})
         .then(data => {
             if (data) {
                 res.send(data);
             } else {
                 res.status(404).send({
-                    message: `Cannot find Article with title=${title}.`
+                    message: `Cannot find Article with link=${link}.`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving Article with title=" + title
+                message: "Error retrieving Article with link=" + link
             });
         });
 };
-// Update a Article by the id in the request
+// Update an Article by the id in the request
 exports.update = (req, res) => {
-    const title = req.params.title;
+    const id = req.params.id;
     Article.update(req.body, {
-        where: { title: title }
+        where: { id: id }
     })
         .then(num => {
             if (num === 1) {
@@ -92,13 +92,13 @@ exports.update = (req, res) => {
                 });
             } else {
                 res.send({
-                    message: `Cannot update Article with title=${title}. Maybe Article was not found or req.body is empty!`
+                    message: `Cannot update Article with id=${id}. Maybe Article was not found or req.body is empty!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error updating Article with title=" + title
+                message: "Error updating Article with id=" + id
             });
         });
 };

@@ -5,6 +5,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         description: {
             type: Sequelize.STRING
+        },
+        link: {
+            type: Sequelize.STRING
         }
     });
     return Article;
